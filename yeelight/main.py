@@ -1007,6 +1007,18 @@ class Bulb(object):
         return "toggle", [], dict(kwargs, light_type=light_type)
 
     @_command
+    def bg_toggle(self, light_type=LightType.Main, **kwargs):
+        """
+        Toggle the background bulb on or off.
+
+        :param yeelight.LightType light_type: Light type to control.
+        """
+        return self._bg_toggle(light_type=light_type, **kwargs)
+
+    def _bg_toggle(self, light_type=LightType.Main, **kwargs):
+        return "bg_toggle", [], dict(kwargs, light_type=light_type)
+
+    @_command
     def dev_toggle(self, **kwargs):
         """Toggle the main light and the ambient on or off."""
         return self._dev_toggle(**kwargs)
